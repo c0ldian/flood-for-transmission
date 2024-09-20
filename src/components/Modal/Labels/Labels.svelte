@@ -18,7 +18,7 @@
     loading = true;
     if (!$selectedTorrents.length) {
       loading = false;
-      alerts.add('Select at least one torrent to continue', 'negative');
+      alerts.add('至少选择一个种子才能继续', 'negative');
       return;
     }
 
@@ -29,11 +29,11 @@
     torrents
       .setTorrents($selectedTorrents, { [TRANSMISSION_COLUMN_LABELS]: labels })
       .then(() => {
-        alerts.add('Succesfully set labels');
+        alerts.add('成功设置标签');
         modals.close();
       })
       .catch(() => {
-        alerts.add('Failed to set labels', 'negative');
+        alerts.add('设置标签失败', 'negative');
       });
   };
 </script>
