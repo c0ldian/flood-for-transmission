@@ -38,7 +38,7 @@
   };
 </script>
 
-<h1>Set labels</h1>
+<h1>设置标签</h1>
 
 <div class="content">
   <form on:submit|preventDefault="{handleLabel}">
@@ -51,7 +51,7 @@
     <div class="button-group">
       <Button priority="tertiary" on:click="{modals.close}">Cancel</Button>
       <Button priority="primary" loading="{loading}" type="submit"
-        >Set labels</Button
+        >设置标签</Button
       >
     </div>
   </form>
