@@ -14,7 +14,7 @@
     loading = true;
     if (!$selectedTorrents.length) {
       loading = false;
-      alerts.add('Select at least one torrent to continue', 'negative');
+      alerts.add('至少选择一个种子才能继续', 'negative');
       return;
     }
     torrents
@@ -23,12 +23,12 @@
         torrents.set(
           $torrents.filter((t) => !$selectedTorrents.includes(t.id))
         );
-        alerts.add(`Succesfully removed ${$selectedTorrents.length} ${term}`);
+        alerts.add(`成功移除 ${$selectedTorrents.length} ${term}`);
         selectedTorrents.clear();
         modals.close();
       })
       .catch(() => {
-        alerts.add(`Failed to remove ${term}`, 'negative');
+        alerts.add(`移除 ${term} 失败`, 'negative');
       });
   };
 </script>
@@ -37,8 +37,8 @@
 
 <div class="content">
   <form on:submit|preventDefault="{handleRemove}">
-    <p>Are you sure you want to remove {$selectedTorrents.length} {term}?</p>
-    <Checkbox label="Delete local data" bind:checked="{deleteData}" />
+    <p>您确定要删除 {$selectedTorrents.length} {term} 吗?</p>
+    <Checkbox label="删除本地数据" bind:checked="{deleteData}" />
     <div class="button-group">
       <Button priority="tertiary" on:click="{modals.close}">Cancel</Button>
       <Button priority="primary" loading="{loading}" type="submit">
