@@ -33,18 +33,18 @@
     loadingSubmit = true;
     if (!$selectedTorrents.length) {
       loadingSubmit = false;
-      alerts.add('Select at least one torrent to continue', 'negative');
+      alerts.add('至少选择一个种子才能继续', 'negative');
       return;
     }
 
     torrents
       .setLocation($selectedTorrents, location, moveData)
       .then(() => {
-        alerts.add('Succesfully set location');
+        alerts.add('成功设置路径');
         modals.close();
       })
       .catch(() => {
-        alerts.add('Failed to set location', 'negative');
+        alerts.add('设置路径失败', 'negative');
         loadingSubmit = false;
       });
   };
@@ -59,9 +59,9 @@
       type="text"
       bind:value="{location}"
       placeholder="Destination"
-      label="Torrent location"
+      label="种子路径"
       pattern="{PATH_VALIDATION_REGEX}"
-      validationMessage="Destination must be an absolute path."
+      validationMessage="目标必须是绝对路径."
       required
     />
     <div class="button-group">
