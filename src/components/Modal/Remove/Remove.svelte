@@ -33,7 +33,7 @@
   };
 </script>
 
-<h1>Remove torrents</h1>
+<h1>删除种子</h1>
 
 <div class="content">
   <form on:submit|preventDefault="{handleRemove}">
@@ -42,7 +42,7 @@
     <div class="button-group">
       <Button priority="tertiary" on:click="{modals.close}">Cancel</Button>
       <Button priority="primary" loading="{loading}" type="submit">
-        Remove torrents
+        删除种子
       </Button>
     </div>
   </form>
