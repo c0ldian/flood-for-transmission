@@ -99,10 +99,10 @@
 
     <div class="buttons">
       <Button type="button" priority="tertiary" on:click="{modals.close}">
-        Cancel
+        取消
       </Button>
       <Button type="submit" priority="primary" loading="{submitLoading}">
-        Save settings
+        保存设置
       </Button>
     </div>
   </form>
