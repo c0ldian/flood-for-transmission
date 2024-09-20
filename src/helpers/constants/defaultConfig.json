@@ -7,7 +7,7 @@
     "COLUMNS": [
         { "label": "名称", "width": 600, "enabled": true },
         { "label": "进度", "width": 300, "enabled": true },
-        { "label": "ETA", "width": 100, "enabled": true },
+        { "label": "预计完成时间", "width": 100, "enabled": true },
         { "label": "下载速度", "width": 100, "enabled": true },
         { "label": "上传速度", "width": 100, "enabled": true },
         { "label": "文件大小", "width": 100, "enabled": true },
