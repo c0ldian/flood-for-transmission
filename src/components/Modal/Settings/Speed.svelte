@@ -66,7 +66,7 @@
     })
     .catch(() => {
       alerts.add(
-        'Unable to fetch the data for that action right now. Try again later.',
+        '目前无法获取该操作的数据，请稍后重试。',
         'negative'
       );
     });
@@ -88,11 +88,11 @@
         'alt-speed-time-end': timeToMinutes(altSpeedTimeEnd),
       })
       .then(() => {
-        alerts.add('Succesfully saved speed settings');
+        alerts.add('成功保存速度设置');
       })
       .catch(() => {
         alerts.add(
-          'Failed saving speed settings, please try again',
+          '保存速度设置失败，请重试',
           'negative'
         );
       })
@@ -105,38 +105,38 @@
 <div class="wrapper" class:loading-initial="{loadingInitial}">
   <Icon name="SpinnerIcon" />
   <form on:submit|preventDefault="{handleSubmit}">
-    <Header text="Speed Limits" />
-    <Checkbox bind:checked="{uploadLimitEnabled}" label="Upload (kB/s)" />
+    <Header text="限速" />
+    <Checkbox bind:checked="{uploadLimitEnabled}" label="上传 (kB/s)" />
     <Input bind:value="{uploadLimit}" type="number" />
 
-    <Checkbox bind:checked="{downloadLimitEnabled}" label="Download (kB/s)" />
+    <Checkbox bind:checked="{downloadLimitEnabled}" label="下载 (kB/s)" />
     <Input bind:value="{downloadLimit}" type="number" />
 
-    <Header text="Alternative Speed Limits" />
+    <Header text="备用限速" />
     <Checkbox
       bind:checked="{altLimitsEnabled}"
-      label="Alternative speeds enabled"
+      label="已启用备用限速"
     />
 
-    <Input bind:value="{altUploadLimit}" label="Upload (kB/s)" type="number" />
+    <Input bind:value="{altUploadLimit}" label="上传 (kB/s)" type="number" />
 
     <Input
       bind:value="{altDownloadLimit}"
-      label="Download (kB/s)"
+      label="下载 (kB/s)"
       type="number"
     />
 
-    <Checkbox bind:checked="{altSpeedTimeEnabled}" label="Scheduled Times" />
+    <Checkbox bind:checked="{altSpeedTimeEnabled}" label="计划时间" />
 
-    <Input bind:value="{altSpeedTimeBegin}" label="From" type="time" />
-    <Input bind:value="{altSpeedTimeEnd}" label="To" type="time" />
+    <Input bind:value="{altSpeedTimeBegin}" label="从" type="time" />
+    <Input bind:value="{altSpeedTimeEnd}" label="至" type="time" />
 
     <div class="buttons">
       <Button type="button" priority="tertiary" on:click="{modals.close}">
-        Cancel
+        取消
       </Button>
       <Button type="submit" priority="primary" loading="{loadingSubmit}">
-        Save settings
+        保存设置
       </Button>
     </div>
   </form>
