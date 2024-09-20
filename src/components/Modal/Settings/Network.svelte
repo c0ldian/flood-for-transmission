@@ -42,7 +42,7 @@
     })
     .catch(() => {
       alerts.add(
-        'Unable to fetch the data for that action right now. Try again later.',
+        '目前无法获取该操作的数据，请稍后重试。',
         'negative'
       );
     });
@@ -58,11 +58,11 @@
         'utp-enabled': utpEnabled,
       })
       .then(() => {
-        alerts.add('Succesfully saved network settings');
+        alerts.add('成功保存网络设置');
       })
       .catch(() => {
         alerts.add(
-          'Failed saving network settings, please try again',
+          '保存网络设置失败，请重试',
           'negative'
         );
       })
@@ -75,25 +75,25 @@
 <div class="wrapper" class:loading-initial="{loadingInitial}">
   <Icon name="SpinnerIcon" />
   <form on:submit|preventDefault="{handleSubmit}">
-    <Header text="Listening port" />
+    <Header text="监听端口" />
     <Input
-      label="Peer listening port"
+      label="Peer监听端口"
       bind:value="{peerPort}"
       type="number"
       hint="Port is {portOpen ? 'open' : 'closed'}"
     />
     <Checkbox
-      label="Randomize port on launch"
+      label="启动时随机化端口"
       bind:checked="{randomizePeerPort}"
     />
     <Checkbox
-      label="Use port forwarding from my router"
+      label="使用路由器的端口转发"
       bind:checked="{portForwardingEnabled}"
     />
 
-    <Header text="Options" />
+    <Header text="设置" />
     <Checkbox
-      label="Enable uTP for peer communication"
+      label="启用 uTP "
       bind:checked="{utpEnabled}"
     />
 
