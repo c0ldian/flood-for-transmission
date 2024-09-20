@@ -129,7 +129,7 @@
   <form on:submit|preventDefault="{handleSubmit}">
     {#if tab === 'url'}
       <InputMultiple
-        label="Torrents"
+        label="种子"
         class="torrent-url-hash-input"
         placeholder="Torrent URL, Magnet Link or hash"
         bind:values="{fileNames}"
@@ -137,7 +137,7 @@
       />
     {:else if tab === 'file'}
       <InputFile
-        label="Torrents"
+        label="种子"
         bind:files="{files}"
         multiple
         required
@@ -145,7 +145,7 @@
       />
     {/if}
     <InputPath
-      label="Destination"
+      label="目的地"
       placeholder="Destination"
       bind:value="{destination}"
       pattern="{PATH_VALIDATION_REGEX}"
@@ -153,10 +153,10 @@
       required
     />
     <div class="button-group">
-      <Checkbox label="Start Torrent" bind:checked="{start}" />
-      <Button priority="tertiary" on:click="{modals.close}">Cancel</Button>
+      <Checkbox label="开始下载" bind:checked="{start}" />
+      <Button priority="tertiary" on:click="{modals.close}">取消</Button>
       <Button priority="primary" loading="{loadingSubmit}" type="submit">
-        Add Torrent
+        添加种子
       </Button>
     </div>
   </form>
