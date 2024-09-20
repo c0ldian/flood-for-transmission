@@ -122,7 +122,7 @@
         id="{column.id}"
       >
         <span>{uiColumns.getColumnLabel(column.id)}</span>
-        <Checkbox bind:checked="{column.enabled}" label="Enabled" />
+        <Checkbox bind:checked="{column.enabled}" label="启用" />
       </div>
     {/each}
   </div>
