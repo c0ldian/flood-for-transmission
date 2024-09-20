@@ -65,7 +65,7 @@
     })
     .catch(() => {
       alerts.add(
-        'Unable to fetch the data for that action right now. Try again later.',
+        '目前无法获取该操作的数据，请稍后重试。',
         'negative'
       );
     });
@@ -80,11 +80,11 @@
       .then(session.updateBlocklist)
       .then((newBlocklistSize) => {
         blocklistSize = newBlocklistSize;
-        alerts.add('Succesfully updated your blocklist');
+        alerts.add('已成功更新您的黑名单');
       })
       .catch(() => {
         alerts.add(
-          'Failed updating your blocklist, please try again',
+          '更新黑名单失败，请重试',
           'negative'
         );
       })
@@ -108,11 +108,11 @@
         'encryption': encryption,
       })
       .then(() => {
-        alerts.add('Succesfully saved peers settings');
+        alerts.add('已成功保存Peers设置');
       })
       .catch(() => {
         alerts.add(
-          'Failed saving peers settings, please try again',
+          '保存Peers设置失败，请重试',
           'negative'
         );
       })
@@ -125,38 +125,38 @@
 <div class="wrapper" class:loading-initial="{loadingInitial}">
   <Icon name="SpinnerIcon" />
   <form on:submit|preventDefault="{handleSubmit}">
-    <Header text="Connections" />
+    <Header text="连接性" />
     <Input
       bind:value="{maxPeersPerTorrent}"
-      label="Max peers per torrent"
+      label="每个 torrent 的最大连接数"
       type="number"
     />
     <Input
       bind:value="{maxPeersOverall}"
-      label="Max peers overall"
+      label="全局最大连接数"
       type="number"
     />
 
-    <Header text="Options" />
-    <Checkbox bind:checked="{pexEnabled}" label="Use PEX to find more peers" />
-    <Checkbox bind:checked="{dhtEnabled}" label="Use DHT to find more peers" />
-    <Checkbox bind:checked="{lpdEnabled}" label="Use LPD to find more peers" />
+    <Header text="设置" />
+    <Checkbox bind:checked="{pexEnabled}" label="使用 PEX 查找更多Peers" />
+    <Checkbox bind:checked="{dhtEnabled}" label="使用 DHT 查找更多Peers" />
+    <Checkbox bind:checked="{lpdEnabled}" label="使用 LPD 查找更多Peers" />
 
-    <Header text="Privacy" />
+    <Header text="隐私" />
     <Select
       options="{encryptionOptions}"
       on:change="{(event) => (encryption = event.detail)}"
       value="{encryption}"
       direction="below"
-      label="Encryption"
+      label="加密"
     />
 
-    <Header text="Blocklist" />
-    <Checkbox bind:checked="{blocklistEnabled}" label="Enable blocklist" />
+    <Header text="黑名单" />
+    <Checkbox bind:checked="{blocklistEnabled}" label="启用黑名单" />
     <Input
       bind:value="{blocklistUrl}"
       type="url"
-      hint="Blocklist has {numberFormatter.format(blocklistSize)} rules"
+      hint="黑名单有 {numberFormatter.format(blocklistSize)} 条规则"
     />
     <div class="update-wrapper">
       <Button
@@ -169,10 +169,10 @@
 
     <div class="buttons">
       <Button type="button" priority="tertiary" on:click="{modals.close}">
-        Cancel
+        取消
       </Button>
       <Button type="submit" priority="primary" loading="{submitLoading}">
-        Save settings
+        保存设置
       </Button>
     </div>
   </form>
