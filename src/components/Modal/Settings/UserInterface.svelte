@@ -28,9 +28,9 @@
   let newDiskUsage = $diskUsage;
 
   const darkModeOptions = [
-    { label: 'Auto', value: 'auto' },
-    { label: 'Enabled', value: 'enabled' },
-    { label: 'Disabled', value: 'disabled' },
+    { label: '自动', value: 'auto' },
+    { label: '启用', value: 'enabled' },
+    { label: '禁用', value: 'disabled' },
   ];
 
   const handleSubmit = () => {
@@ -42,11 +42,11 @@
       tableHeaderConfig.set(newTableHeaderConfig);
       darkMode.set(newDarkMode);
       diskUsage.set(newDiskUsage);
-      alerts.add('Succesfully saved user interface settings');
+      alerts.add('成功保存用户界面设置');
     } catch (e) {
       console.error(e);
       alerts.add(
-        'Failed saving user interface settings, please try again',
+        '保存用户界面设置失败，请重试',
         'negative'
       );
     }
@@ -58,61 +58,61 @@
 </script>
 
 <form on:submit|preventDefault="{handleSubmit}">
-  <Header text="Color scheme" />
+  <Header text="配色方案" />
   <div class="list">
     <Select
       options="{darkModeOptions}"
       on:change="{(event) => (newDarkMode = event.detail)}"
       value="{newDarkMode}"
       direction="below"
-      label="Dark mode"
+      label="深色模式"
     />
   </div>
 
   <div class="list">
     <Checkbox
-      label="Switch speed colors"
-      hint="This will switch the upload and download colors. Originally green for download and blue for upload."
+      label="改变下载速度颜色"
+      hint="这将切换上传和下载的颜色。最初绿色表示下载，蓝色表示上传。"
       bind:checked="{newSwitchSpeedColors}"
     />
   </div>
 
-  <Header text="Format" />
+  <Header text="格式" />
   <div class="list">
     <Checkbox
-      label="24-hour notation"
-      hint="Will represent time with 24 hours if enabled and 12 hours if disabled"
+      label="24小时制"
+      hint="如果启用，则使用 24 小时制；如果禁用，则使用 12 小时制。"
       bind:checked="{newTimeConfig}"
     />
   </div>
 
   <div class="list">
     <Checkbox
-      label="Wrap overflowing text in table headers"
-      hint="Will wrap text in header columns when enabled"
+      label="标题换行"
+      hint="启用后将在标题列中换行"
       bind:checked="{newTableHeaderConfig}"
     />
   </div>
 
-  <Header text="Common paths" />
+  <Header text="通用路径" />
   <p class="hint">
-    These paths will be shown behind the magnifier where you can select a path.
+    这些路径将显示在建议路径后面，您可以在那里选择一条路径。
   </p>
   <InputMultiple
     bind:values="{newPaths}"
     pattern="{PATH_VALIDATION_REGEX}"
-    validationMessage="Path must be an absolute path."
+    validationMessage="路径必须是绝对路径。"
   />
 
   <div class="list">
     <Checkbox
-      label="Show disk usage"
-      hint="Shows disk usage in the sidepanel based on the common paths"
+      label="显示磁盘使用情况"
+      hint="根据通用路径在侧面板显示磁盘使用情况"
       bind:checked="{newDiskUsage}"
     />
   </div>
 
-  <Header text="Torrent Columns" />
+  <Header text="列名称" />
   <div class="list">
     {#each Object.values(newColumns) as column}
       <div
@@ -129,9 +129,9 @@
 
   <div class="buttons">
     <Button type="button" priority="tertiary" on:click="{modals.close}">
-      Cancel
+      取消
     </Button>
-    <Button type="submit" priority="primary">Save settings</Button>
+    <Button type="submit" priority="primary">保存设置</Button>
   </div>
 </form>
 
