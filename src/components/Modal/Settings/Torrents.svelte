@@ -92,7 +92,7 @@
     })
     .catch(() => {
       alerts.add(
-        'Unable to fetch the data for that action right now. Try again later.',
+        '目前无法获取该操作的数据，请稍后重试。',
         'negative'
       );
     });
@@ -122,11 +122,11 @@
         [SESSION_COLUMN_SCRIPT_DONE]: scriptDone,
       })
       .then(() => {
-        alerts.add('Succesfully saved torrent settings');
+        alerts.add('已成功保存种子设置');
       })
       .catch(() => {
         alerts.add(
-          'Failed saving torrent settings, please try again',
+          '保存种子设置失败，请重试',
           'negative'
         );
       })
@@ -139,74 +139,74 @@
 <div class="wrapper" class:loading-initial="{loadingInitial}">
   <Icon name="SpinnerIcon" />
   <form on:submit|preventDefault="{handleSubmit}">
-    <Header text="Downloading" />
+    <Header text="下载中" />
     <InputPath
-      label="Download to"
+      label="下载至"
       bind:value="{downloadDir}"
-      hint="This will be used as the default location for Transmission when adding a new torrent."
+      hint="这将用作 Transmission 添加新种子时的默认位置。"
     />
-    <Checkbox label="Start when added" bind:checked="{startAddedTorrents}" />
+    <Checkbox label="添加时自动开始" bind:checked="{startAddedTorrents}" />
     <Checkbox
-      label="Remove torrent file when added"
+      label="添加后删除种子文件"
       bind:checked="{removeTorrentFile}"
     />
     <Checkbox
-      label="{'Append ".part" to incomplete files\' names'}"
+      label="{'将“.part”后缀附加到未完成的文件名称中'}"
       bind:checked="{renamePartialFiles}"
     />
     <Checkbox
-      label="Incomplete directory:"
+      label="未完成目录："
       bind:checked="{incompleteDirEnabled}"
     />
     <InputPath
       bind:value="{incompleteDir}"
-      hint="Will default to the download directory when not enabled"
+      hint="未启用时将默认使用下载目录"
     />
     <Checkbox
-      label="Run script when complete:"
+      label="完成后运行脚本:"
       bind:checked="{scriptDoneEnabled}"
     />
     <InputPath bind:value="{scriptDone}" />
 
-    <Header text="Seeding" />
+    <Header text="做种" />
     <Checkbox
-      label="Stop seeding at ratio:"
+      label="按分享率停止做种:"
       bind:checked="{seedRatioLimited}"
     />
     <Input bind:value="{seedRatioLimit}" type="number" step="0.01" />
     <Checkbox
-      label="Stop seeding if idle for (min):"
+      label="如果空闲时间达到（分钟）则停止做种:"
       bind:checked="{idleSeedingLimited}"
     />
     <Input bind:value="{idleSeedingLimit}" type="number" />
 
-    <Header text="Queue" />
+    <Header text="队列" />
     <Checkbox
-      label="Limit concurrent downloads:"
+      label="限制同时下载数:"
       bind:checked="{downloadQueueEnabled}"
     />
     <Input bind:value="{downloadQueueSize}" type="number" />
     <Checkbox
-      label="Limit concurrent seeding:"
+      label="限制同时做种数:"
       bind:checked="{seedQueueEnabled}"
     />
     <Input bind:value="{seedQueueSize}" type="number" />
     <Checkbox
-      label="Consider inactive after (minutes):"
+      label="视为不活动需要的时间（分钟）:"
       bind:checked="{queueStalledEnabled}"
     />
     <Input
       bind:value="{queueStalledMinutes}"
       type="number"
-      hint="Torrents that are inactive for this amount of minutes will not be considered as a concurrent download/seed."
+      hint="在这段时间内处于非活动状态的 Torrent 将不会被视为同时下载/做种。"
     />
 
     <div class="buttons">
       <Button type="button" priority="tertiary" on:click="{modals.close}">
-        Cancel
+        取消
       </Button>
       <Button type="submit" priority="primary" loading="{loadingSubmit}">
-        Save settings
+        保存设置
       </Button>
     </div>
   </form>
