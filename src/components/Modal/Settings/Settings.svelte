@@ -23,7 +23,7 @@
           torrentsComponent = res.default;
           return res.default;
         }),
-      name: 'Torrents',
+      name: '种子',
     },
     {
       id: 'speed',
@@ -33,7 +33,7 @@
           speedComponent = res.default;
           return res.default;
         }),
-      name: 'Speed',
+      name: '速度',
     },
     {
       id: 'peers',
@@ -53,7 +53,7 @@
           networkComponent = res.default;
           return res.default;
         }),
-      name: 'Network',
+      name: '网络',
     },
     {
       id: 'user-interface',
@@ -63,7 +63,7 @@
           userInterfaceComponent = res.default;
           return res.default;
         }),
-      name: 'User Interface',
+      name: '用户界面',
     },
     {
       id: 'about',
@@ -73,7 +73,7 @@
           aboutComponent = res.default;
           return res.default;
         }),
-      name: 'About',
+      name: '关于',
     },
   ];
 </script>
