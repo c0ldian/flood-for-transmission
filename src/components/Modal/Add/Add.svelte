@@ -54,7 +54,7 @@
 
     // Set errors for the first invalid input
     inputs[invalidIndex].setCustomValidity(
-      'Invalid URL, magnet or torrent hash'
+      '无效的URL、磁力链接或种子哈希'
     );
     formElement.reportValidity();
     return true;
@@ -105,7 +105,7 @@
         if (e) {
           console.error(e);
           alerts.add(
-            'Failed to add some torrent, please try again',
+            '添加种子失败，请重试',
             'negative'
           );
         }
@@ -149,7 +149,7 @@
       placeholder="Destination"
       bind:value="{destination}"
       pattern="{PATH_VALIDATION_REGEX}"
-      validationMessage="Destination must be an absolute path."
+      validationMessage="要求路径必须是绝对路径。"
       required
     />
     <div class="button-group">
