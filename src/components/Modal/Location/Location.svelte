@@ -50,7 +50,7 @@
   };
 </script>
 
-<h1>Set torrent location</h1>
+<h1>设置下载路径</h1>
 
 <div class="content" class:loading-initial="{loadingInitial}">
   <Icon name="SpinnerIcon" />
@@ -59,16 +59,16 @@
       type="text"
       bind:value="{location}"
       placeholder="Destination"
-      label="种子路径"
+      label="下载路径"
       pattern="{PATH_VALIDATION_REGEX}"
       validationMessage="目标必须是绝对路径."
       required
     />
     <div class="button-group">
-      <Checkbox label="Move data" bind:checked="{moveData}" />
-      <Button priority="tertiary" on:click="{modals.close}">Cancel</Button>
+      <Checkbox label="移动数据" bind:checked="{moveData}" />
+      <Button priority="tertiary" on:click="{modals.close}">取消</Button>
       <Button priority="primary" loading="{loadingSubmit}" type="submit">
-        Set torrent location
+        设置下载路径
       </Button>
     </div>
   </form>
