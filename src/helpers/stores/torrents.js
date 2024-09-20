@@ -63,7 +63,7 @@ const sorted = derived(
 
     const transmissionSortingColumns = COLUMN_MAP[$sorting.id];
     if (!transmissionSortingColumns) {
-      console.warn('Unrecognized sorting');
+      console.warn('无法识别的分类');
       return filteredTorrents;
     }
 
