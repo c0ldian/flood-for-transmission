@@ -41,7 +41,7 @@
 
     if (!allFilesValid) {
       alerts.add(
-        'Seems like some of the dropped files are invalid, try again with valid .torrent files',
+        '拖放的文件无效，请使用有效的 .torrent 文件重试',
         'negative'
       );
       return;
@@ -71,7 +71,7 @@
         if (!e) return;
 
         console.error(e);
-        alerts.add('Failed to add some torrent, please try again', 'negative');
+        alerts.add('无法添加某些种子，请重试', 'negative');
       });
   };
 
@@ -101,7 +101,7 @@
 >
   <div class="dropzone-content">
     <Icon name="Files" />
-    Drop here to add them to Transmission.
+    拖放到此处即可将其添加到 Transmission。
   </div>
   <input type="file" id="{id}" bind:this="{input}" multiple />
 </label>
