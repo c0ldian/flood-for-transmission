@@ -4,7 +4,7 @@
 </script>
 
 <div class="menu">
-  <h1>Settings</h1>
+  <h1>设置</h1>
 
   <ul class="items">
     {#each pages as page}
